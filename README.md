@@ -19,23 +19,14 @@ You need **Node.js 18 or newer** and **Chrome or Edge**.
 ```bash
 cd classguard
 npm install
-npm run seed      # optional: demo teacher, 8 students, past sessions and an exam
 npm start         # http://localhost:3000
 ```
 
 Open <http://localhost:3000>.
 
-**Try the demo:** sign in as `teacher@demo.test` / `teacher123`. Open **Grade 10 Physics** to see past sessions, then open a second terminal and run:
 
-```bash
-npm run simulate
-```
 
-Seven demo students now join, switch tabs, drop out and rejoin. The live dashboard updates every 5 seconds. Under **Exams** you can open *Unit 3 quiz* to see risk scores and review attempts.
-
-Other demo logins: `ana@demo.test`, `ben@demo.test`, … with password `student123`.
-
-To start with real data instead, skip `npm run seed` and register at the website. To reset, stop the server and delete the `data/` folder.
+To start with real data instead, register at the website.
 
 ---
 
@@ -70,7 +61,7 @@ To start with real data instead, skip `npm run seed` and register at the website
 | Copy / Paste / Cut | 5 / 8 / 4 each |
 | Time away from the exam tab | 2 per minute, up to 20 |
 
-Under 25 is **low**, 25 to 49 **medium**, 50 and above **high**. The score is a pointer for human review, not proof of cheating. Students may paste their own words or switch tabs for harmless reasons. Edit the numbers in `server/risk.js` to match your school's policy.
+Under 25 is **low**, 25 to 49 **medium**, 50 and above **high**. The score is a pointer for human review, not proof of cheating. Students may paste their own words or switch tabs for harmless reasons.
 
 ---
 
@@ -144,8 +135,6 @@ docs/API.md     REST API reference
 | Retention | Records older than `RETENTION_DAYS` (default 180) are deleted automatically. |
 | No score for students | Students are never shown their own risk score. |
 
-Check your school's policy and local law (for example GDPR or the Data Privacy Act) and tell students about monitoring *before* using it.
-
 ---
 
 ## 6. Configuration
@@ -182,4 +171,3 @@ Set environment variables before `npm start`, or copy `.env.example` to `.env` a
 
 ## License
 
-Use and adapt freely within your school.
