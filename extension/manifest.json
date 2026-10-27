@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "ClassGuard",
+  "version": "1.0.0",
+  "description": "Reports whether your class tab is in front and counts exam tab switches and copy/paste. Never reads your screen, mouse or keyboard.",
+  "permissions": ["storage"],
+  "background": { "service_worker": "background.js" },
+  "action": { "default_popup": "popup.html", "default_title": "ClassGuard" },
+  "icons": { "16": "icons/icon16.png", "48": "icons/icon48.png", "128": "icons/icon128.png" },
+  "content_scripts": [
+    {
+      "matches": ["https://meet.google.com/*"],
+      "js": ["meet.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://docs.google.com/forms/*",
+        "https://forms.office.com/*",
+        "https://forms.microsoft.com/*",
+        "https://forms.cloud.microsoft/*"
+      ],
+      "js": ["exam.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
